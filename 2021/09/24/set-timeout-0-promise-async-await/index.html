@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+       set-timeout-0-promise-async-await - septlog 
+    </title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body style="position: relative">
+     2021/09/24 tag: 
+    <a href="js">
+      js
+    </a>
+    
+      <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 逻辑代码。。。</span></span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// resolve(something)</span></span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 逻辑代码</span></span><br></pre></td></tr></table></figure>
+
+        <div style="display: flex; justify-content: space-around">
+          
+            <div>
+              <span>prev post</span> <a href="../../26/js-micro-macro-task/ ">
+                js-micro-macro-task
+              </a>
+            </div>
+            
+              
+                <div><span>next post</span> <a href="../../23/js-for-of-for-in/ ">
+                    js-for-of-for-in
+                  </a></div>
+                
+        </div> 
+    <script>
+      let posts = document.querySelectorAll('.post-link');
+      let block = document.querySelector('.d');
+      for (let post of posts) {
+        post.addEventListener('mouseenter', () => {
+          block.className = 'dd';
+        });
+        post.addEventListener('mouseleave', () => {
+          block.className = 'd';
+        });
+      }
+    </script>
+  </body>
+</html>

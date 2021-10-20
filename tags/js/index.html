@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/index.css " />
+    <title>
+       septlog
+      
+    </title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>
-    
-          septlog 
-  </title>
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body style="position: relative">
-  <h3>
-    
-</h3>
-    this is a tag
-      <h3>this is footer</h3>
-</body>
-
+  <body style="position: relative">
+     <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="" rel="tag">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="../react/" rel="tag">react</a><span class="tag-list-count">1</span></li></ul>
+ 
+    <script>
+      let posts = document.querySelectorAll('.post-link');
+      let block = document.querySelector('.d');
+      for (let post of posts) {
+        post.addEventListener('mouseenter', () => {
+          block.className = 'dd';
+        });
+        post.addEventListener('mouseleave', () => {
+          block.className = 'd';
+        });
+      }
+    </script>
+  </body>
 </html>
