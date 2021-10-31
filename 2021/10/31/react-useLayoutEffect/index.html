@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+       react useLayoutEffect - septlog 
+    </title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body style="position: relative">
+     2021/10/31 tag: 
+    <a href="react">
+      react
+    </a>
+    
+      <p>useEffect 可以满足大部分的需求。</p>
+<p>useLayoutEffect 和 useEffect 实现的功能类似，唯一的区别在于 useEffect 是异步执行，而 useLayoutEffect 是同步执行。</p>
+<p>useLayoutEffect 会在重绘之前触发，而 useEffect 不是，所以在使用 useEffect 的时候可能会出现页面元素一闪的情况，使用 useLayoutEffect 可以解决这个一闪的问题。</p>
+<p>项目中根据实际需求选择 useEffect 还是 useLayoutEffect。</p>
+
+        <div style="display: flex; justify-content: space-around">
+          
+            <div>
+              <span>prev post</span> <a href="../react-tree-view/ ">
+                使用 React Hook 实现树形结构展示
+              </a>
+            </div>
+            
+              
+                <div><span>next post</span> <a href="../../20/react/ ">
+                    react
+                  </a></div>
+                
+        </div> 
+    <script>
+      let posts = document.querySelectorAll('.post-link');
+      let block = document.querySelector('.d');
+      for (let post of posts) {
+        post.addEventListener('mouseenter', () => {
+          block.className = 'dd';
+        });
+        post.addEventListener('mouseleave', () => {
+          block.className = 'd';
+        });
+      }
+    </script>
+  </body>
+</html>
