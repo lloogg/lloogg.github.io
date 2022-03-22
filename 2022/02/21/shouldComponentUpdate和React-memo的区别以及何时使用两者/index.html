@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            shouldComponentUpdate和React.memo的区别以及何时使用两者 - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/02/21
+<span>tag:</span>
+
+
+<p>我在网上看 react 生命周期的时候，发现一个在 class component 里面用到的 shouldComponentUpdate 方法。因为我一直用 functional component，我就去找这个方法在 functional component 里面怎么用，然后就找到了用 React.memo 方法。</p>
+<p>shouldComponentUpdate 方法和 React.memo 方法什么时候用，区别是什么？</p>
+<p>shouldComponentUpdate 一般用于比较 state 或 prop 有没有变化，有变化就 update，没变化就不 update，但是！！，这个功能函数组件已经替我们实现了！！（使用 hook 的好处之一？）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps, nextState</span>)</span> &#123;</span><br><span class="line"><span class="comment">////////////////////////////// 我中午的代码是 nextProps.num !== this.props.num + 2，不要这样写</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.props.color !== nextProps.color) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.state.count !== nextState.count) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>官方不建议用 shouldComponentUpdate 或 memo 用来判断“是否需要更新组件”，容易出 bug，至于是什么 bug，官方文档里没细说。可以看一下下面的代码，至少 memo 和 shouldComponentUpdate 不是一回事。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> FunctionComponentChild = React.memo(</span><br><span class="line">  <span class="function">(<span class="params">&#123; width &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;width&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function">(<span class="params">prevProps, nextProps</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> nextProps.width !== prevProps.width + <span class="number">2</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> FunctionComponentParent = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [width, setWidth] = useState(<span class="number">100</span>);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>+2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">FunctionalComponentChild</span> <span class="attr">width</span>=<span class="string">&#123;width&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponentChild</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps, nextState</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> nextProps.width === <span class="built_in">this</span>.props.width + <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;width&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassComponentParent</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">button</span>&gt;</span>+2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">ClassComponentChild</span> <span class="attr">width</span>=<span class="string">&#123;width&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只有当需要性能优化的时候，才可能用到这两者</p>
+<p>区别是两者判断逻辑相反，shouldComponentUpdate return true 更新，memo 第二个参数 return false 更新</p>
+<p>我个人感觉算是历史遗留问题吧，感觉 api 太多反倒让人搞不清楚</p>
+<p>参考链接：<br><a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-component.html#shouldcomponentupdate">https://reactjs.org/docs/react-component.html#shouldcomponentupdate</a><br><a target="_blank" rel="noopener" href="https://reactjs.org/docs/react-api.html#reactpurecomponent">https://reactjs.org/docs/react-api.html#reactpurecomponent</a></p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../react-hook-state%E6%B2%A1%E5%8F%98%EF%BC%8C%E4%BD%86%E6%98%AF%E9%A2%9D%E5%A4%96%E8%A7%A6%E5%8F%91%E4%BA%86%E4%B8%80%E6%AC%A1%E9%87%8D%E6%B8%B2%E6%9F%93/ ">
+            react hook state没变，但是额外触发了一次重渲染
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../18/css-transform-origin/ ">
+            css-transform-origin
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../../../css/index.css " />
     <title>
-       typescript-utility-types - septlog 
+        
+            typescript-utility-types - septlog
+        
     </title>
-  <meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-  <body style="position: relative">
-     2021/10/08 tag: 
-      <ol>
+<body style="position: relative">
+    
+    2021/10/08
+<span>tag:</span>
+
+
+<ol>
 <li>Partial&lt;Type&gt;</li>
 </ol>
 <p>Partial&lt;Type&gt; 中的属性和 Type 中的属性一样，但都为可选项。例如：</p>
@@ -90,31 +97,27 @@
 <p>InstanceType&lt;Type&gt; 类型是实例对象的类型。例子：</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">  x = <span class="number">0</span>;</span><br><span class="line">  y = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> T0 = InstanceType&lt;<span class="keyword">typeof</span> C&gt;;</span><br><span class="line"><span class="comment">// T0 = C</span></span><br><span class="line"><span class="keyword">type</span> T1 = InstanceType&lt;<span class="built_in">any</span>&gt;;</span><br><span class="line"><span class="comment">// T1 = any</span></span><br><span class="line"><span class="keyword">type</span> T2 = InstanceType&lt;<span class="built_in">never</span>&gt;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// T2 = never</span></span><br><span class="line"><span class="keyword">type</span> T3 = InstanceType&lt;<span class="built_in">string</span>&gt;;</span><br><span class="line"><span class="comment">// Type &#x27;string&#x27; does not satisfy the constraint &#x27;abstract new (...args: any) =&gt; any&#x27;.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// T3 = any</span></span><br><span class="line"><span class="keyword">type</span> T4 = InstanceType&lt;<span class="built_in">Function</span>&gt;;</span><br><span class="line"><span class="comment">// Type &#x27;Function&#x27; does not satisfy the constraint &#x27;abstract new (...args: any) =&gt; any&#x27;. Type &#x27;Function&#x27; provides no match for the signature &#x27;new (...args: any): any&#x27;.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// T4 = any</span></span><br></pre></td></tr></table></figure>
 
-        <div style="display: flex; justify-content: space-around">
-          
-            <div>
-              <span>prev post</span> <a href="../run-multiple-npm-scripts-in-parallel/ ">
-                run multiple npm scripts in parallel
-              </a>
-            </div>
-            
-              
-                <div><span>next post</span> <a href="../../../09/29/git-overview/ ">
-                    git-overview
-                  </a></div>
-                
-        </div> 
-    <script>
-      let posts = document.querySelectorAll('.post-link');
-      let block = document.querySelector('.d');
-      for (let post of posts) {
-        post.addEventListener('mouseenter', () => {
-          block.className = 'dd';
-        });
-        post.addEventListener('mouseleave', () => {
-          block.className = 'd';
-        });
-      }
-    </script>
-  </body>
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../run-multiple-npm-scripts-in-parallel/ ">
+            run multiple npm scripts in parallel
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../../09/29/git-overview/ ">
+            git-overview
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
 </html>

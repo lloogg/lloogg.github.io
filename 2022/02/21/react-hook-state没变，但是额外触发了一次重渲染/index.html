@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            react hook state没变，但是额外触发了一次重渲染 - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/02/21
+<span>tag:</span>
+
+<a href="react">
+    react
+</a>
+
+
+<p>为什么 state 没变，还是会 rerender 一次？<br>class 组件，无论新 state 是否与旧 state 一样，都会 rerender；函数组件，只有在新 state 和旧 state 不一样的时候，才会 render，但是也有可能新 state 与旧 state 一样，也会 rerender。</p>
+<p>可以参考以下链接：<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/55373878/what-are-the-differences-when-re-rendering-after-state-was-set-with-hooks-compar">https://stackoverflow.com/questions/55373878/what-are-the-differences-when-re-rendering-after-state-was-set-with-hooks-compar</a><br><a target="_blank" rel="noopener" href="https://github.com/facebook/react/issues/14810#issuecomment-462089702">https://github.com/facebook/react/issues/14810#issuecomment-462089702</a><br><a target="_blank" rel="noopener" href="https://reactjs.org/docs/hooks-reference.html#bailing-out-of-a-state-update">https://reactjs.org/docs/hooks-reference.html#bailing-out-of-a-state-update</a></p>
+<p>我理解不了，可能 react 是这么设计的，有点反直觉</p>
+<p>为了让 class 组件也和 functional component 的效果一致，class component 中有一个 shouldComponentUpdate 方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一般会这样用</span></span><br><span class="line"><span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps, nextState</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.props.color !== nextProps.color) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.state.count !== nextState.count) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>react 官方建议，不要用 shouldComponentUpdate 来“阻止页面重渲染”，否则可能会出现意想不到的 bug。</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../22/js%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/ ">
+            js数据类型
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../shouldComponentUpdate%E5%92%8CReact-memo%E7%9A%84%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E4%B8%A4%E8%80%85/ ">
+            shouldComponentUpdate和React.memo的区别以及何时使用两者
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

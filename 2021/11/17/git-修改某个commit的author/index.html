@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            git 修改某个commit的author - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2021/11/17
+<span>tag:</span>
+
+<a href="git">
+    git
+</a>
+
+
+<h2 id="修改最后一次-commit-的-author"><a href="#修改最后一次-commit-的-author" class="headerlink" title="修改最后一次 commit 的 author"></a>修改最后一次 commit 的 author</h2><p>git config –global user.name username<br>git config –global user.email <a href="mailto:&#117;&#x73;&#101;&#x72;&#64;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#117;&#x73;&#101;&#x72;&#64;&#x65;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;</a><br>git commit –amend –reset-author –no-edit</p>
+<h2 id="修改指定-commit-的-author"><a href="#修改指定-commit-的-author" class="headerlink" title="修改指定 commit 的 author"></a>修改指定 commit 的 author</h2><p>git rebase -i commitId（要修改的 commit 的前一个 commit 的 id）<br>-i 表示 interactive 交互式的<br>这时会打开 git 默认的编辑器<br>将 pick 修改为 edit 后保存退出编辑器<br>git commit –amend –author=”username <a href="mailto:&#x75;&#115;&#101;&#x72;&#64;&#x65;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#x75;&#115;&#101;&#x72;&#64;&#x65;&#109;&#x61;&#x69;&#x6c;&#46;&#99;&#x6f;&#x6d;</a>“（注意用户名和邮箱之间有一个空格）<br>然后 git rebase –continue</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../18/electron-devtools-%E5%AE%89%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95/ ">
+            electron devtools 安装浏览器扩展
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../../10/31/remove-all-child-elements-of-a-dom-node-in-javascript/ ">
+            Remove all child elements of a DOM node in JavaScript
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

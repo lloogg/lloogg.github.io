@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            reflow-repaint - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/02/14
+<span>tag:</span>
+
+<a href="browser js">
+    browser js
+</a>
+
+
+<p>reflow，常译为<strong>重排</strong>或<strong>回流</strong></p>
+<p>repaint，重绘</p>
+<p>网页生成过程：</p>
+<ol>
+<li>html 被 html 解析器解析成 DOM 树</li>
+<li>css 被 css 解析器解析成 CSSOM 树</li>
+<li>结合 DOM 树和 CSSOM 树，生成一棵渲染树</li>
+<li>生成布局（flow）</li>
+<li>将布局绘制到屏幕上（paint）</li>
+</ol>
+<p>第四步和第五步是<strong>最耗时的</strong>，这两步合起来，就是通常说的<strong>渲染</strong></p>
+<p>重排（reflow）必然导致重绘（repaint），而重绘不一定会导致重排</p>
+<h3 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h3><h4 id="概念："><a href="#概念：" class="headerlink" title="概念："></a>概念：</h4><p>当 DOM 的变化影响了元素的位置或尺寸大小，浏览器需要重新计算元素的位置或尺寸大小，这个过程叫重排</p>
+<h4 id="常见引起重排的情况"><a href="#常见引起重排的情况" class="headerlink" title="常见引起重排的情况"></a>常见引起重排的情况</h4><ol>
+<li>添加或删除可见的 DOM 元素</li>
+<li>元素尺寸改变————margin、padding、border、width、height</li>
+<li>内容变化————比如用户在 input 框中输入文字</li>
+<li>浏览器尺寸窗口改变</li>
+<li>设置 style 的值</li>
+<li>计算 offsetWidth 和 offsetHeight 属性</li>
+</ol>
+<h4 id="重排影响的范围"><a href="#重排影响的范围" class="headerlink" title="重排影响的范围"></a>重排影响的范围</h4><ul>
+<li>全局范围</li>
+<li>局部范围</li>
+</ul>
+<h4 id="尽可能减少重排的次数、重排范围"><a href="#尽可能减少重排的次数、重排范围" class="headerlink" title="尽可能减少重排的次数、重排范围"></a>尽可能减少重排的次数、重排范围</h4><h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>当一个元素的外观发生改变，但没有改变布局</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../18/css-transform-origin/ ">
+            css-transform-origin
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../11/css-sibling/ ">
+            css-sibling
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

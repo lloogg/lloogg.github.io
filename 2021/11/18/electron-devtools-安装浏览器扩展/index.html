@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            electron devtools 安装浏览器扩展 - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2021/11/18
+<span>tag:</span>
+
+<a href="electron">
+    electron
+</a>
+
+
+<p><a target="_blank" rel="noopener" href="https://www.electronjs.org/docs/latest/tutorial/devtools-extension">devtools-extension</a><br><a target="_blank" rel="noopener" href="https://github.com/electron/electron/issues/23662">issue</a></p>
+<p>如果安装不上，尝试：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.whenReady().then(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">await</span> session.defaultSession.loadExtension(</span><br><span class="line">    reactDevToolsPath,</span><br><span class="line">    &#123; <span class="attr">allowFileAccess</span>: <span class="literal">true</span> &#125;, <span class="comment">//this is the key line</span></span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../../12/09/javascript%E4%B8%A4%E4%B8%AA%E9%97%AE%E5%8F%B7%E6%84%9F%E5%8F%B9%E5%8F%B7/ ">
+            javascript两个问号感叹号
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../17/git-%E4%BF%AE%E6%94%B9%E6%9F%90%E4%B8%AAcommit%E7%9A%84author/ ">
+            git 修改某个commit的author
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            electron-window-open - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/02/09
+<span>tag:</span>
+
+
+<p>window.open 可以打开一个新的窗口，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newWindow = <span class="built_in">window</span>.open(url);</span><br><span class="line">&lt;!-- newWindow.document.body.appendChild() --&gt;</span><br><span class="line">newWindow.addEventListener(<span class="string">&#x27;load&#x27;</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;新窗口加载完成&#x27;</span>);</span><br><span class="line">    newWindow.document.body.innerHTML = <span class="string">&#x27;&lt;div&gt;hello world&lt;/div&gt;&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../11/css-sibling/ ">
+            css-sibling
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../../../2021/12/26/pointer-event/ ">
+            pointer-event
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

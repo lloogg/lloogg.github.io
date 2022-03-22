@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../../../css/index.css " />
     <title>
-       react - septlog 
+        
+            react - septlog
+        
     </title>
-  <meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-  <body style="position: relative">
-     2021/10/20 tag: 
-      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 当 state 改变的时候，触发 rerender，即使 ComponentA 和 ComponentB 有相同的节点，这些节点也会被 rerender</span><br><span class="line">&#123;</span><br><span class="line">  state ? &lt;ComponentA /&gt; : &lt;ComponentB /&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<body style="position: relative">
+    
+    2021/10/20
+<span>tag:</span>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 当 state 改变的时候，触发 rerender，即使 ComponentA 和 ComponentB 有相同的节点，这些节点也会被 rerender</span><br><span class="line">&#123;</span><br><span class="line">  state ? &lt;ComponentA /&gt; : &lt;ComponentB /&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 当 state 改变的时候，触发 rerender，即使 ComponentA 和 ComponentB 有相同的节点，这些节点也会被 rerender</span><br><span class="line">function Child() &#123;</span><br><span class="line">  // 当父组件 state 改变的时候，该语句会被触发</span><br><span class="line">  console.log(&#x27;log&#x27;);</span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    // 当父组件 state 改变的时候，该语句会只会触发一次</span><br><span class="line">    console.log(&#x27;effect&#x27;);</span><br><span class="line">  &#125;, []);</span><br><span class="line">  return &lt;div&gt;&lt;/div&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div style="display: flex; justify-content: space-around">
-          
-            <div>
-              <span>prev post</span> <a href="../../31/react-useLayoutEffect/ ">
-                react useLayoutEffect
-              </a>
-            </div>
-            
-              
-                <div><span>next post</span> <a href="../../08/run-multiple-npm-scripts-in-parallel/ ">
-                    run multiple npm scripts in parallel
-                  </a></div>
-                
-        </div> 
-    <script>
-      let posts = document.querySelectorAll('.post-link');
-      let block = document.querySelector('.d');
-      for (let post of posts) {
-        post.addEventListener('mouseenter', () => {
-          block.className = 'dd';
-        });
-        post.addEventListener('mouseleave', () => {
-          block.className = 'd';
-        });
-      }
-    </script>
-  </body>
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../31/react-useLayoutEffect/ ">
+            react useLayoutEffect
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../08/run-multiple-npm-scripts-in-parallel/ ">
+            run multiple npm scripts in parallel
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
 </html>

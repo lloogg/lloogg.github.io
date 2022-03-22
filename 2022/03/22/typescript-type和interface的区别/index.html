@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            typescript-type和interface的区别 - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/03/22
+<span>tag:</span>
+
+<a href="typescript">
+    typescript
+</a>
+
+
+<p>type 扩展<br>通过 &amp; 符号</p>
+<p>interface 扩展<br>通过 extends 关键字</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> A &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a: A = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>interface 可以通过申明同名的 interface 扩展，但是 type 不能</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../09/js-instanceof-%E5%8E%9F%E7%90%86/ ">
+            js instanceof 原理
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>
