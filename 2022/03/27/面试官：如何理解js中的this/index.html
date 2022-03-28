@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            面试官：如何理解js中的this - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/03/27
+<span>tag:</span>
+
+<a href="面试">
+    面试
+</a>
+
+
+<p>思路：</p>
+<ol>
+<li>原型链</li>
+<li>匿名函数的 this</li>
+<li>改变 this 的方法</li>
+<li>bind, apply, call 的区别</li>
+</ol>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><h2 id="匿名函数的-this"><a href="#匿名函数的-this" class="headerlink" title="匿名函数的 this"></a>匿名函数的 this</h2><p>匿名函数没有自己的 this，它指向的 this 是它上级作用域的 this</p>
+<h2 id="改变-this-的方法"><a href="#改变-this-的方法" class="headerlink" title="改变 this 的方法"></a>改变 this 的方法</h2><p>bind，call，apply</p>
+<h2 id="bind-apply-call-的区别"><a href="#bind-apply-call-的区别" class="headerlink" title="bind, apply, call 的区别"></a>bind, apply, call 的区别</h2><p>apply(thisObj, [args1, args2, …])</p>
+<p>call(thisObj, args1, args2, …)</p>
+<p>bind 和上两者的区别是 bind 是等待执行，apply 和 call 是立即执行</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>this 指向的是上下文环境</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../23/top-k-%E7%AE%97%E6%B3%95/ ">
+            top-k 算法
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

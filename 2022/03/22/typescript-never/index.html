@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            typescript-never - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/03/22
+<span>tag:</span>
+
+
+<p>never 表示不应该存在的类型，用于穷尽性检查</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Shape = <span class="string">&#x27;circle&#x27;</span> | <span class="string">&#x27;rect&#x27;</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getShape</span>(<span class="params">shape: Shape</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (shape) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;circle&#x27;</span>:</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;rect&#x27;</span>:</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">const</span> _exhaustive: <span class="built_in">never</span> = shape;</span><br><span class="line">      <span class="keyword">return</span> _exhaustive;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../23/top-k-%E7%AE%97%E6%B3%95/ ">
+            top-k 算法
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../typescript-%E7%B1%BB%E5%9E%8B%E8%B0%93%E8%AF%8D/ ">
+            typescript-类型谓词
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

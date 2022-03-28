@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            top-k 算法 - septlog
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/03/23
+<span>tag:</span>
+
+<a href="algorithm">
+    algorithm
+</a>
+
+
+<ol>
+<li>排序</li>
+</ol>
+<p>快排 O（nlogn)</p>
+<ol start="2">
+<li>通过快排中 partition 划分思想</li>
+</ol>
+<p>每次经过划分，坐标的值大于</p>
+<ol start="3">
+<li>堆</li>
+</ol>
+<p>构建一个大小为 k 的小顶堆，依次将数据放入小顶堆中，当堆的大小满了之后，只需要将堆顶元素与下一个元素进行比较：如果大于堆顶，将当前的堆顶元素抛弃，并将该元素插入堆中。遍历完全部数据，Top K 元素也自然都在堆里面了</p>
+<p>如果是求前 k 小的数，改成大顶堆即可</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../27/%E9%9D%A2%E8%AF%95%E5%AE%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3js%E4%B8%AD%E7%9A%84this/ ">
+            面试官：如何理解js中的this
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../22/typescript-never/ ">
+            typescript-never
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>
