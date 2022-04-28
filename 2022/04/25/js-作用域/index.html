@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            js 作用域 - log
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/04/25
+<span>tag:</span>
+
+<a href="js">
+    js
+</a>
+
+<a href="面试">
+    面试
+</a>
+
+
+<p>作用域是一套规则，用于确定在何处以及如何查找变量（标识符）。如果查找的目的是对变量进行赋值，那么就会使用 LHS 查询；如果目的是获取变量的值，就会使用 RHS 查询</p>
+<p>LHS 和 RHS 查询都会在当前执行作用域中开始，如果当前作用域没有找到所需的变量（标识符），就会向上级作用域继续查找。这样每次上升一级作用域，最后抵达全局作用域。</p>
+<h2 id="词法作用域和动态作用域"><a href="#词法作用域和动态作用域" class="headerlink" title="词法作用域和动态作用域"></a>词法作用域和动态作用域</h2><p>词法作用域是在写代码或者说定义时确定的（代码写好了，作用域就已经确定了，不会动态更改），而动态作用域是在运行时确定的</p>
+<p><strong>JavaScript 并不具有动态作用域</strong></p>
+<h2 id="如何在运行时修改词法作用域"><a href="#如何在运行时修改词法作用域" class="headerlink" title="如何在运行时修改词法作用域"></a>如何在运行时修改词法作用域</h2><ol>
+<li>eval 函数</li>
+</ol>
+<p>eval 通常被用来执行动态创建的代码，但严格模式下，eval 无法修改所在的作用域</p>
+<ol start="2">
+<li>new Function(..)</li>
+</ol>
+<p>比 eval 略安全，但也要尽量避免使用</p>
+<ol start="3">
+<li>with</li>
+</ol>
+<h2 id="函数作用域和块作用域"><a href="#函数作用域和块作用域" class="headerlink" title="函数作用域和块作用域"></a>函数作用域和块作用域</h2><p>每声明一个函数，就会创建一个函数作用域</p>
+<h3 id="立即执行函数表达式"><a href="#立即执行函数表达式" class="headerlink" title="立即执行函数表达式"></a>立即执行函数表达式</h3><h3 id="块作用域"><a href="#块作用域" class="headerlink" title="块作用域"></a>块作用域</h3><ol>
+<li>with</li>
+</ol>
+<p>用 with 从对象中创建出的作用域仅在 with 声明中而非外部作用域中有效</p>
+<ol start="2">
+<li>try catch</li>
+</ol>
+<p>es3 规范中规定 try / catch 的 catch 分句会创建一个块作用域，其中声明的变量仅在 catch 内部有效</p>
+<ol start="3">
+<li>let</li>
+</ol>
+<p>es6 中的 let 创建的变量会<strong>隐式</strong>的附加在一个已存在的块作用域上，let 关键字可以将变量绑定到所在的<strong>任意作用域</strong>中（通常是 { .. } 内部）</p>
+<p>只要声明是有效的，在声明中的任意位置都可以使用 { .. } 括号来为 let 创建一个用于绑定的块。</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../26/js-%E9%97%AD%E5%8C%85/ ">
+            js-闭包
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../../20/%E6%89%8B%E5%86%99bind/ ">
+            手写bind
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>

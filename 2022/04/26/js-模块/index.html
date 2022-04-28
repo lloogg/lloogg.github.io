@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../css/index.css " />
+    <title>
+        
+            js-模块 - log
+        
+    </title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body style="position: relative">
+    
+    2022/04/26
+<span>tag:</span>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> something = <span class="string">&#x27;cool&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> another = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(something);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">doAnother</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(another.join(<span class="string">&#x27; ! &#x27;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">doSomething</span>: doSomething,</span><br><span class="line">    <span class="attr">doAnother</span>: doAnother,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = CoolModule();</span><br><span class="line">foo.doSomething(); <span class="comment">// cool</span></span><br><span class="line">foo.doAnother(); <span class="comment">// 1 ! 2 ! 3</span></span><br></pre></td></tr></table></figure>
+
+<p>这个模式在 JavaScript 中被称为模块。最常见的实现模块模式的方法通常被称为模块暴露，</p>
+<p>CoolModule 可以被调用任意多次，每次调用都会创建一个新的模块实例</p>
+<h2 id="模块单例模式"><a href="#模块单例模式" class="headerlink" title="模块单例模式"></a>模块单例模式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = (<span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> something = <span class="string">&#x27;cool&#x27;</span>;</span><br><span class="line">  <span class="keyword">var</span> another = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">doSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(something);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">doAnother</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(another.join(<span class="string">&#x27; ! &#x27;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">doSomething</span>: doSomething,</span><br><span class="line">    <span class="attr">doAnother</span>: doAnother,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line">foo.doSomething(); <span class="comment">// cool</span></span><br><span class="line">foo.doAnother(); <span class="comment">// 1 ! 2 ! 3</span></span><br></pre></td></tr></table></figure>
+
+<p>模块模式另一个简单但强大的变化用法是，命名将要作为公共 API 返回的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = (<span class="function"><span class="keyword">function</span> <span class="title">CoolModule</span>(<span class="params">id</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 修改公共 API</span></span><br><span class="line">    publicAPI.identify = identify2;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">identify1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">identify2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(id.toUpperCase());</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> publicAPI = &#123;</span><br><span class="line">    <span class="attr">change</span>: change,</span><br><span class="line">    <span class="attr">identify</span>: identify1,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> publicAPI;</span><br><span class="line">&#125;)(<span class="string">&#x27;foo module&#x27;</span>);</span><br><span class="line">foo.identify(); <span class="comment">// foo module</span></span><br><span class="line">foo.change();</span><br><span class="line">foo.identify(); <span class="comment">// FOO MODULE</span></span><br></pre></td></tr></table></figure>
+
+<p>模块有两个主要特征：（1）为创建内部作用域而调用了一个包装函数；（2）包装函数的返回<br>值必须至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭<br>包。</p>
+
+
+<div style="display: flex; justify-content: space-around">
+    
+    <div>
+        <span>prev post</span> <a href="../../27/js-this/ ">
+            js-this
+        </a>
+    </div>
+    
+
+    
+    <div>
+        <span>next post</span>
+        <a href="../js-%E6%8F%90%E5%8D%87/ ">
+            js-提升
+        </a>
+    </div>
+    
+</div>
+    
+     
+</body>
+
+</html>
